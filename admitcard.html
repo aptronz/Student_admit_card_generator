@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admit Card</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f2f2f2;
+}
+
+.card{
+    width:1000px;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    box-shadow:0 0 10px gray;
+}
+
+.header{
+    display:flex;
+    
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:2px solid #e67e22;
+    padding-bottom:10px;
+}
+.header img{
+    height:70px;
+}
+.header h2{
+    text-align:center;
+}
+
+.info{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+}
+.info-left{
+    width:70%;
+}
+.info-right img{
+    width:120px;
+    border:1px solid gray;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:10px;
+    margin-top:10px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+table,th,td{
+    border:1px solid gray;
+}
+th{
+    background:#e6e6e6;
+}
+th,td{
+    padding:8px;
+    text-align:center;
+}
+.header .title{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="header" style="text-align:center" >
+    <img src="clglogo.png">
+    <div class="title">
+        <h2>ADMIT CARD</h2>
+        <h3>MID TERM EXAMINATION</h3>
+    </div>
+</div>
+<br>
+
+<div class="info">
+    <div class="info-left">
+        <div class="grid">
+            <p><b>Name:</b> <span id="name"></span></p>
+            <p><b>Program:</b> B.Tech</p>
+            <p><b>Branch:</b> <span id="branch"></span></p>
+            <p><b>Semester:</b> <span id="sem"></span></p>
+            <p><b>Section:</b> DS1</p>
+            <p><b>Enrollment No:</b> <span id="regno"></span></p>
+        </div>
+    </div>
+
+    <div class="info-right">
+        <img src="student.jpg">
+        <p>Student Image</p>
+        
+    </div>
+</div>
+
+<table>
+<tr>
+<th>S.No</th>
+<th>Type</th>
+<th>Code</th>
+<th>Subject Name</th>
+<th>Date</th>
+<th>Time</th>
+<th>Status</th>
+</tr>
+
+<tr><td>1</td><td>Theory</td><td>TCS662</td><td>Machine Learning</td><td>24/02/2026</td><td>9:30-12:30</td><td>Eligible</td></tr>
+<tr><td>2</td><td>Theory</td><td>TCS611</td><td>Full Stack Dev.</td><td>25/02/2026</td><td>9:30-12:30</td><td>Eligible</td></tr>
+<tr><td>3</td><td>Theory</td><td>TCS619</td><td>Image Processing</td><td>26/02/2026</td><td>9:30-12:30</td><td>Eligible</td></tr>
+<tr><td>4</td><td>Theory</td><td>TCS629</td><td>Compiler Design</td><td>27/02/2026</td><td>9:30-12:30</td><td>Eligible</td></tr>
+<tr><td>5</td><td>Theory</td><td>TCS639</td><td>Career Skills</td><td>28/02/2026</td><td>9:30-12:30</td><td>Eligible</td></tr>
+</table>
+
+<p><b>Examination Center:</b> Graphic Era University</p>
+
+
+<div style="text-align:center">
+    <button onclick="window.print()">Print Admit Card</button>
+</div>
+
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("name").innerText = params.get("name");
+document.getElementById("regno").innerText = params.get("regno");
+document.getElementById("branch").innerText = params.get("branch");
+document.getElementById("sem").innerText = params.get("sem");
+
+</script>
+
+
+</body>
+</html>

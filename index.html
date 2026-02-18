@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Examination Registration</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right,#eff0f1,#b1c4e4);
+    color:white;
+    text-align:center;
+    padding-top:100px;
+}
+.container{
+    background:white;
+    color:black;
+    width:420px;
+    margin:auto;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+h1{
+    color:#1e3c72;
+}
+input{
+    width:90%;
+    padding:10px;
+    margin:10px;
+    font-size:16px;
+}
+button{
+    padding:12px 25px;
+    font-size:18px;
+    background:#1e3c72;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+button:hover{
+    background:#729ae0;
+}
+</style>
+
+<script>
+function startRegistration()
+{
+    alert("Welcome to Online Examination Registration");
+    var name = prompt("Enter your Name:");
+    var regno = prompt("Enter your Enrollment Number:");
+    var branch = prompt("Enter Branch (CSE/IT/etc):");
+    var sem = prompt("Enter Semester:");
+
+    if(name=="" || regno=="" || branch=="" || sem=="")
+    {
+        alert("Registration Cancelled!");
+        return;
+    }
+
+    var confirmSubmit = confirm("Confirm submission of registration form?");
+
+    if(confirmSubmit==true)
+    {
+        window.open("submit.html");
+
+        setTimeout(function(){
+            window.open(
+              "admitcard.html?name="+encodeURIComponent(name)+
+              "&regno="+encodeURIComponent(regno)+
+              "&branch="+encodeURIComponent(branch)+
+              "&sem="+encodeURIComponent(sem),
+              "AdmitCard"
+            );
+        },2000);
+    }
+}
+</script>
+
+
+</head>
+
+<body>
+
+<div class="container">
+    <img src="graphicera.jpg.jpeg">
+    <h1>Online Examination Registration</h1>
+    <p>Click the button below to start your exam registration.</p>
+    <button onclick="startRegistration()">Register Now</button>
+</div>
+
+</body>
+</html>
